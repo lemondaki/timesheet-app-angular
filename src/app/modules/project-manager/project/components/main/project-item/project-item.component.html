@@ -1,0 +1,84 @@
+<mat-card class="client">
+  <mat-card-content>{{ projectItem[0].customerName }}</mat-card-content>
+</mat-card>
+<div class="group-infor-project" *ngFor="let item of projectItem">
+  <div class="project-item">
+    <div class="project-item-infor">
+      <span class="project-name">
+        {{ item.name }}
+      </span>
+      <app-chip-label [typeLabel]="'label label-pm'">
+        {{ item.pms.slice(0, 5).join(", ") }}
+      </app-chip-label>
+      <app-chip-label [typeLabel]="'label label-member-amount'">
+        {{ item.activeMember }} members
+      </app-chip-label>
+      <app-chip-label [typeLabel]="'label label-shortname'">
+        {{ item.projectType | projectType }}
+      </app-chip-label>
+      <app-chip-label [typeLabel]="'label label-datetime'">
+        {{ item.timeStart | date : "dd/MM/yyyy" }}
+        {{ item.timeEnd ? "-" : "" }}
+        {{ item.timeEnd | date : "dd/MM/yyyy" }}
+      </app-chip-label>
+    </div>
+    <div class="item-project-right">
+      <span
+        *ngIf="
+          item.status === statusNumber.DEACTIVE &&
+          currentStatusNumber === statusNumber.ALL
+        "
+        class="label-custom-active label-inactive"
+        >Inactive</span
+      >
+      <span
+        *ngIf="
+          item.status === statusNumber.ACTIVE &&
+          currentStatusNumber === statusNumber.ALL
+        "
+        class="label-custom-active label-active"
+        >active</span
+      >
+
+      <button
+        mat-button
+        mat-raised-button
+        [matMenuTriggerFor]="menu"
+        class="btn-action-project-item"
+        color="primary"
+      >
+        Actions
+        <i class="material-icons">arrow_drop_down</i>
+      </button>
+      <mat-menu #menu xPosition="before">
+        <button mat-menu-item [routerLink]="'edit/' + item.id + '/general'">
+          <mat-icon class="mat-icon material-icons mat-icon-no-color">
+            edit
+          </mat-icon>
+          Edit
+        </button>
+        <button mat-menu-item (click)="openDialogViewDialog(item)">
+          <mat-icon class="mat-icon material-icons mat-icon-no-color">
+            remove_red_eye
+          </mat-icon>
+          View
+        </button>
+        <button
+          mat-menu-item
+          (click)="openDialog(item.id, item.name, item.status)"
+        >
+          <mat-icon class="mat-icon material-icons mat-icon-no-color">{{
+            item.status ? "done" : "clear"
+          }}</mat-icon
+          >{{ item.status ? "Active" : "Deactive" }}
+        </button>
+        <button mat-menu-item (click)="openDialog(item.id, item.name)">
+          <mat-icon class="mat-icon material-icons mat-icon-no-color">
+            delete
+          </mat-icon>
+          Delete
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</div>

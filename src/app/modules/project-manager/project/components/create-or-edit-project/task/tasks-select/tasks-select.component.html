@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card-content>Select Tasks</mat-card-content>
+</mat-card>
+<div class="tasks-select">
+  <ng-container *ngFor="let task of tasksSelect">
+    <div class="tasks-select-item" (click)="handleSendTaskSelect(task)">
+      <div class="task-content-left">
+        <button class="mat-icon-button">
+          <span class="mat-button-wrapper">
+            <i class="material-icons"> add_circle_outline </i>
+          </span>
+        </button>
+        <span class="task-content"> {{ task.name }} </span>
+      </div>
+      <div class="task-heading-type">
+        <p>{{ task.type ? "Other Task" : "Common Task" }}</p>
+      </div>
+    </div>
+  </ng-container>
+</div>

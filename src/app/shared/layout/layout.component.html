@@ -1,0 +1,69 @@
+<div class="app">
+  <header>
+    <mat-toolbar class="header-toolbar" color="primary">
+      <div class="logo">
+        <button mat-icon-button class="menu-bar" (click)="nav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <img
+            class="image_logo"
+            src="../../../../assets/img/nccsoft_vietnam_logo.png"
+            alt="ncc_logo"
+          />
+        </button>
+        <span>Timesheet</span>
+      </div>
+      <div class="right-icons">
+        <button mat-icon-button>
+          <i class="material-icons">more_vert</i>
+        </button>
+      </div>
+    </mat-toolbar>
+  </header>
+  <mat-drawer-container class="example-container">
+    <mat-drawer #nav [opened]="!isHandset" [mode]="isHandset ? 'over' : 'side'">
+      <section class="sidebar">
+        <aside>
+          <div class="user-infor">
+            <div class="user-image">
+              <img [src]="avatarFullPath" alt="User logo" />
+            </div>
+            <div class="user_descriptions">
+              <p>{{ userName }}</p>
+              <p>{{ emailAddress }}</p>
+            </div>
+            <div [matMenuTriggerFor]="menu" class="logout-action">
+              <i class="material-icons">keyboard_arrow_down</i>
+            </div>
+            <mat-menu #menu="matMenu" xPosition="before" class="custom-menu">
+              <button mat-menu-item class="logout-btn" (click)="handleLogout()">
+                <i class="material-icons">input</i>
+                <span>Logout</span>
+              </button>
+            </mat-menu>
+          </div>
+          <div class="routes">
+            <ng-container *ngFor="let route of routes">
+              <a [routerLink]="route.path">
+                <i class="material-icons">{{ route.icon }}</i>
+                <span>{{ route.name }}</span>
+              </a>
+            </ng-container>
+          </div>
+        </aside>
+        <footer>
+          <div>© 2023 Timesheet.</div>
+          <div>Version 4.3.0.0 [20221606]</div>
+        </footer>
+      </section>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div class="wrapper-content">
+        <div class="main-content custom-shadow">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

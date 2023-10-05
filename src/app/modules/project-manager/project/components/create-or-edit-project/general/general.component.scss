@@ -1,0 +1,46 @@
+form {
+  .form-field-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 20px;
+    padding: 0 24px;
+  }
+
+  .form-field {
+    width: 200px;
+    h2 {
+      font-size: 16px;
+    }
+  }
+}
+
+.form-select-field {
+  width: 420px;
+}
+
+.project-code-custom {
+  width: 210px;
+}
+
+.date-to {
+  align-self: center;
+}
+
+.full-width {
+  flex: 1;
+}
+
+.wrapper-btn-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.custom-datepicker {
+  width: 400px;
+  display: flex;
+}
+
+.form-field-textarea {
+  width: 420px;
+}

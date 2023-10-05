@@ -1,0 +1,22 @@
+.team-member-item {
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-self: flex-start;
+  gap: 4px;
+}
+
+.member-infor {
+  display: flex;
+  flex-direction: column;
+  .wrapper-name {
+    display: flex;
+    height: 20px;
+  }
+}
+
+.member-image {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}

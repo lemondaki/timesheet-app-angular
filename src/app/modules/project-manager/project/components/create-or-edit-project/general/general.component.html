@@ -1,0 +1,111 @@
+<form [formGroup]="generalFormGroup">
+  <div class="form-field-item">
+    <div class="form-field">
+      <h2>Client*</h2>
+    </div>
+    <mat-form-field class="form-select-field" appearance="outline">
+      <mat-label>Choose a client</mat-label>
+      <mat-select formControlName="customerId">
+        <ng-container *ngFor="let customer of allCustomer">
+          <mat-option [value]="customer.id">{{ customer.name }}</mat-option>
+        </ng-container>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="primary">
+      <span class="mat-button-wrapper">
+        <mat-icon class="mat-icon material-icons mat-icon-no-color"
+          >add </mat-icon
+        >New Client
+      </span>
+    </button>
+  </div>
+  <div class="form-field-item">
+    <div class="form-field">
+      <h2>Project name*</h2>
+    </div>
+    <mat-form-field class="form-select-field" appearance="outline">
+      <input matInput placeholder="Project name" formControlName="name" />
+    </mat-form-field>
+  </div>
+  <div class="form-field-item">
+    <div class="form-field">
+      <h2>Project code*</h2>
+    </div>
+    <mat-form-field
+      class="form-select-field project-code-custom"
+      appearance="outline"
+    >
+      <input matInput placeholder="Project code" formControlName="code" />
+    </mat-form-field>
+  </div>
+  <div class="form-field-item">
+    <div class="form-field">
+      <h2>Date*</h2>
+    </div>
+    <mat-form-field appearance="outline">
+      <mat-label>Choose a date</mat-label>
+      <input
+        matInput
+        [matDatepicker]="pickerStart"
+        formControlName="timeStart"
+      />
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="pickerStart"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #pickerStart></mat-datepicker>
+    </mat-form-field>
+    <span class="date-to">to</span>
+    <mat-form-field appearance="outline" class="custom-datepicker">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="pickerEnd" formControlName="timeEnd" />
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="pickerEnd"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #pickerEnd></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="form-field-item">
+    <div class="form-field">
+      <h2>Note</h2>
+    </div>
+    <mat-form-field class="form-field-textarea" appearance="outline">
+      <mat-label>Leave a comment</mat-label>
+      <textarea
+        matInput
+        placeholder="type some notes..."
+        formControlName="note"
+      ></textarea>
+    </mat-form-field>
+  </div>
+  <div class="form-field-item">
+    <div class="form-field">
+      <h2>All User</h2>
+    </div>
+    <section>
+      <mat-checkbox formControlName="status">
+        Auto add user as a member of this project when creating new user
+      </mat-checkbox>
+    </section>
+  </div>
+  <div class="form-field-item">
+    <div class="form-field">
+      <h2>Project Type*</h2>
+    </div>
+    <mat-form-field class="form-select-field" appearance="outline">
+      <mat-label>Choose project type</mat-label>
+      <mat-select formControlName="projectType">
+        <mat-option
+          *ngFor="let type of projectType"
+          [value]="type.projectTypeId"
+        >
+          {{ type.typeName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="wrapper-btn-footer">
+    <button mat-raised-button color="primary" matStepperNext>Next</button>
+  </div>
+</form>

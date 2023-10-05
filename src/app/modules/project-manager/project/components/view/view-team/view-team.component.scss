@@ -1,0 +1,31 @@
+main {
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.box-team-data {
+  display: grid;
+  grid-template-columns: 200px 200px 1fr;
+  border-bottom: 1px solid #ccc;
+  padding: 16px 0;
+  .total,
+  .title {
+    font-weight: 600;
+    margin: 0;
+    line-height: 1;
+  }
+  .title {
+    font-size: 17px;
+  }
+  .total {
+    font-size: 16px;
+  }
+  p {
+    margin: 0;
+  }
+}
+
+.wrapper-data-team {
+  max-height: 360px;
+  overflow-y: scroll;
+}

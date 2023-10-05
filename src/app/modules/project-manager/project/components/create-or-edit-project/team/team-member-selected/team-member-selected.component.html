@@ -1,0 +1,77 @@
+<mat-expansion-panel
+  (opened)="panelOpenTeam = true"
+  (closed)="panelOpenTeam = false"
+>
+  <mat-expansion-panel-header>
+    <mat-panel-title> Team </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="expansion-footer">
+    <mat-checkbox> Show deactive member </mat-checkbox>
+    <mat-form-field appearance="outline" class="input-search-field">
+      <mat-label>Search by name, email</mat-label>
+      <input
+        matInput
+        placeholder="Search by name, email"
+        name="searchInputValue"
+        [(ngModel)]="searchInputValue"
+        (ngModelChange)="handleSearchTeamMemberSelected()"
+      />
+      <mat-icon class="search-icon" matSuffix>search </mat-icon>
+    </mat-form-field>
+  </div>
+  <div class="team-lists">
+    <ng-container *ngFor="let teamMember of searchTeamMemberSelected">
+      <div class="wrap-team-member-item">
+        <div class="member-item-left">
+          <button
+            type="button"
+            class="mat-icon-button"
+            (click)="handleRemoveMemberItem(teamMember.value)"
+          >
+            <span class="mat-button-wrapper">
+              <mat-icon class="mat-icon material-icons mat-icon-no-color"
+                >clear
+              </mat-icon>
+            </span>
+          </button>
+          <app-team-member-item
+            [memberItem]="teamMember.value"
+          ></app-team-member-item>
+        </div>
+        <div class="member-item-right">
+          <mat-form-field class="form-select" appearance="fill">
+            <mat-select
+              [(ngModel)]="teamMember.value.type"
+              (ngModelChange)="handleRunValidator()"
+            >
+              <!-- (ngModelChange)="updateTeamMember(teamMember.value)" -->
+              <mat-option
+                *ngFor="let position of positionMember"
+                [value]="position.typeId"
+                >{{ position.typeName }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="form-select" appearance="fill">
+            <mat-select [(ngModel)]="teamMember.value.isTemp">
+              <mat-option
+                *ngFor="let temp of tempOfficalMember"
+                [value]="temp.isTemp"
+                >{{ temp.tempName }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button
+            type="button"
+            class="mat-icon-button"
+            (click)="handleRemoveMemberItem(teamMember.value)"
+          >
+            <span class="mat-button-wrapper"
+              ><i class="fa-solid fa-angle-right"></i
+            ></span>
+          </button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</mat-expansion-panel>

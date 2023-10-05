@@ -1,0 +1,16 @@
+.main-task {
+  display: flex;
+  gap: 50px;
+  min-height: 450px;
+}
+
+app-tasks-select,
+app-tasks-list {
+  width: 50%;
+}
+
+.wrapper-btn-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}

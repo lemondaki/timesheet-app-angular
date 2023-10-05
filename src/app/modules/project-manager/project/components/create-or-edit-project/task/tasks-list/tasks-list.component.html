@@ -1,0 +1,34 @@
+<mat-card>
+  <mat-card-content>Tasks</mat-card-content>
+  <div class="wrapper-check">
+    <span> Billable</span>
+    <mat-checkbox
+      [(ngModel)]="isAllComplete"
+      (change)="handleCheckAllbox()"
+      color="primary"
+    ></mat-checkbox>
+  </div>
+</mat-card>
+<div class="tasks-list">
+  <ng-container *ngFor="let task of tasksFormArray?.value; let idx = index">
+    <div class="task-item">
+      <div class="task-content-left">
+        <button class="mat-icon-button" (click)="handleRemoveTask(task, idx)">
+          <span class="mat-button-wrapper">
+            <mat-icon class="mat-icon material-icons mat-icon-no-color">
+              clear
+            </mat-icon>
+          </span>
+        </button>
+        <span class="task-content"> {{ task.name }} </span>
+      </div>
+      <section class="example-section">
+        <mat-checkbox
+          [(ngModel)]="task.billable"
+          (ngModelChange)="handleCheckAllComplete()"
+          color="primary"
+        ></mat-checkbox>
+      </section>
+    </div>
+  </ng-container>
+</div>

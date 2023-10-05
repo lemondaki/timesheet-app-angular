@@ -1,0 +1,25 @@
+<div class="wrapper-dialog">
+  <span class="warning-icon"
+    ><i class="fa-solid fa-circle-exclamation"></i
+  ></span>
+  <h1 mat-dialog-title>Are you sure?</h1>
+  <div mat-dialog-content>{{ data.actionTitle }} Project: '{{ data.name }}'?</div>
+  <div class="dialog-action" mat-dialog-actions>
+    <button
+      class="custom-btn"
+      mat-raised-button
+      [mat-dialog-close]="cancelAction"
+    >
+      Cancel
+    </button>
+    <button
+      class="custom-btn"
+      mat-raised-button
+      [mat-dialog-close]="acceptAction"
+      cdkFocusInitial
+      color="primary"
+    >
+      Yes
+    </button>
+  </div>
+</div>

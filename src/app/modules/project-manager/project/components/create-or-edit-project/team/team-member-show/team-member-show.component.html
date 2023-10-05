@@ -1,0 +1,62 @@
+<mat-expansion-panel
+  (opened)="openPanelTeamMemberShow = true"
+  (closed)="openPanelTeamMemberShow = false"
+>
+  <mat-expansion-panel-header>
+    <mat-panel-title> Select team member </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="expansion-footer">
+    <mat-form-field class="form-select-field" appearance="fill">
+      <mat-label>Branch</mat-label>
+      <mat-select
+        [(ngModel)]="currentSelectedBranch"
+        (ngModelChange)="handleFilterMemberChange()"
+      >
+        <mat-option *ngFor="let branch of allBranch" [value]="branch.id">
+          {{ branch.displayName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="form-select-field" appearance="fill">
+      <mat-label>All</mat-label>
+      <mat-select
+        [(ngModel)]="currentSelectedType"
+        (ngModelChange)="handleFilterMemberChange()"
+      >
+        <mat-option
+          [value]="i - 1"
+          *ngFor="let t of typeMember; let i = index"
+          >{{ t.type }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="input-search-field-right">
+      <mat-label>Search by name, email</mat-label>
+      <input
+        matInput
+        placeholder="Search by name, email"
+        name="searchValue"
+        [(ngModel)]="searchInputValue"
+        (ngModelChange)="handleFilterMemberChange()"
+      />
+      <mat-icon class="search-icon" matSuffix>search </mat-icon>
+    </mat-form-field>
+    <div class="team-lists">
+      <ng-container *ngFor="let member of searchTeamMemberShow">
+        <div
+          class="wrap-team-member-item"
+          (click)="handleSendMemberItem(member)"
+        >
+          <div class="box-member-item">
+            <button type="button" class="mat-icon-button">
+              <span class="mat-button-wrapper">
+                <i class="fa-solid fa-angle-left"></i>
+              </span>
+            </button>
+            <app-team-member-item [memberItem]="member"></app-team-member-item>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</mat-expansion-panel>

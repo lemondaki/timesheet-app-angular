@@ -1,0 +1,17 @@
+<div class="team-member-item">
+  <img class="member-image" [src]="memberItem.avatarFullPath" alt="Member" />
+  <div class="member-infor">
+    <div class="wrapper-name">
+      <span class="member-name">{{ memberItem.name }}</span>
+      <app-chip-label
+        [style.background-color]="memberItem.branchColor"
+        [class]="'label-member'"
+        >{{ memberItem.branchDisplayName }}
+      </app-chip-label>
+      <app-chip-label [class]="'label-member label-collaborator'">
+        {{ memberItem.type | pipeLevel }}
+      </app-chip-label>
+    </div>
+    <span class="member-email">{{ memberItem.emailAddress }}</span>
+  </div>
+</div>

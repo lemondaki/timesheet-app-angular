@@ -1,0 +1,28 @@
+<form [formGroup]="dateFormGroup">
+  <h1 mat-dialog-title>Custom Time</h1>
+  <mat-form-field>
+    <mat-label>From Date</mat-label>
+    <input matInput [matDatepicker]="start" formControlName="dateStart" />
+    <mat-datepicker-toggle matIconSuffix [for]="start"></mat-datepicker-toggle>
+    <mat-datepicker #start></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>To Date</mat-label>
+    <input matInput [matDatepicker]="end" formControlName="dateEnd" />
+    <mat-datepicker-toggle matIconSuffix [for]="end"></mat-datepicker-toggle>
+    <mat-datepicker #end></mat-datepicker>
+  </mat-form-field>
+  <div mat-dialog-actions>
+    <button mat-button cdkFocusInitial [mat-dialog-close]="false">
+      Cancel
+    </button>
+    <button
+      mat-button
+      mat-raised-button
+      color="primary"
+      (click)="handleCloseDialog()"
+    >
+      Save
+    </button>
+  </div>
+</form>

@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card-content>Create Project</mat-card-content>
+</mat-card>
+<mat-stepper linear #stepper (selectionChange)="stepSelectionChange($event)">
+  <mat-step [stepControl]="generalFormGroup" label="General">
+    <app-general [generalFormGroup]="generalFormGroup"></app-general>
+  </mat-step>
+  <mat-step [stepControl]="teamFormGroup" label="Team">
+    <app-team [teamFormGroup]="teamFormGroup"></app-team>
+  </mat-step>
+  <mat-step [stepControl]="taskFormGroup" label="Tasks">
+    <app-task [taskFormGroup]="taskFormGroup"></app-task>
+  </mat-step>
+  <mat-step label="Notification">
+    <app-notification
+      [notificationFormGroup]="notificationFormGroup"
+      [myFormData]="myFormData"
+    ></app-notification>
+  </mat-step>
+</mat-stepper>

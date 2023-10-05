@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+:root {
+  --header-height: 70px;
+  --sidebar-width: 300px;
+  --primary-color: #2e95ea;
+  --danger-color: #f44336;
+  --warning-color: #f89c26;
+  --sucess-color: #4caf50;
+  --gray-color: #9e9e9e;
+  --brown-color: #a57164;
+}
+
+.label {
+  margin-left: 5px;
+  font-weight: 600;
+  min-width: 26px;
+  color: #fff;
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label-member {
+  margin-left: 5px;
+  font-weight: 600;
+  color: #fff;
+  font-size: 10px;
+  padding: 3px 4px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 18px;
+}
+
+.label-custom-active {
+  margin-left: 5px;
+  font-weight: 600;
+  min-width: 26px;
+  color: #fff;
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label-collaborator,
+.label-pm {
+  background-color: var(--primary-color);
+}
+
+.label-junior {
+  background-color: var(--brown-color);
+}
+
+.label-staff,
+.label-member-amount {
+  background-color: var(--danger-color);
+}
+
+.label-shortname {
+  background-color: var(--warning-color);
+}
+
+.label-datetime {
+  background-color: var(--sucess-color);
+}
+
+.label-active {
+  background-color: var(--sucess-color);
+}
+
+.label-inactive {
+  background-color: var(--gray-color);
+}
+
+.user-not-select {
+  user-select: none;
+}
+
+.custom-shadow {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.custom-menu {
+  min-height: 30px !important;
+  height: 50px;
+  min-width: 146px !important;
+  width: 80px;
+}
+
+.custom-form-field {
+  margin-top: 18px;
+}
+
+.project-type {
+  margin-left: 5px;
+  font-weight: 600;
+  min-width: 26px;
+  color: #000;
+  font-size: 16px;
+  padding: 10px 24px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.label-project-type {
+  background-color: var(--danger-color);
+  color: #fff;
+}
+
+.wrap-team-member-item {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  background-color: #f5f5f5;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  flex-wrap: wrap;
+  cursor: pointer;
+}

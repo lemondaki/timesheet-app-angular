@@ -1,0 +1,37 @@
+<div class="main-action">
+  <a [routerLink]="'create/general'">
+    <button mat-raised-button color="primary">
+      <span class="mat-button-wrapper">
+        <mat-icon class="mat-icon material-icons">add </mat-icon>New Project
+      </span>
+    </button>
+  </a>
+  <mat-form-field class="custom-form-field" appearance="outline">
+    <mat-select
+      [(value)]="currentStatusNumber"
+      (selectionChange)="handleGetAllProject()"
+    >
+      <mat-option *ngFor="let status of projectStatus" [value]="status.value">
+        {{ status.name }} ({{ status.quantity }})
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <form (ngSubmit)="handleGetAllProject()">
+    <mat-form-field
+      appearance="outline"
+      class="input-search-field custom-form-field"
+    >
+      <mat-label>Search by client or project name</mat-label>
+      <input
+        [(ngModel)]="currentSearchValue"
+        (ngModelChange)="onInputSearchChange()"
+        matInput
+        placeholder="Search by client or project name"
+        name="searchValue"
+      />
+      <mat-icon (click)="handleGetAllProject()" class="search-icon" matSuffix
+        >search
+      </mat-icon>
+    </mat-form-field>
+  </form>
+</div>

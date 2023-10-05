@@ -1,0 +1,13 @@
+<header>
+  <mat-card>
+    <mat-card-content>Manage Projects</mat-card-content>
+  </mat-card>
+</header>
+<app-create-filter-search-project></app-create-filter-search-project>
+<div [class]="isLoading ? 'loading-modal' : ''"></div>
+<div *ngIf="isLoading" class="main-loading">
+  <mat-spinner></mat-spinner>
+</div>
+<ng-container *ngFor="let projectItem of projectData">
+  <app-project-item [projectItem]="projectItem"></app-project-item>
+</ng-container>

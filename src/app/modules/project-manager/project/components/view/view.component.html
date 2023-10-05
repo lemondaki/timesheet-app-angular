@@ -1,0 +1,39 @@
+<header>
+  <div class="wrapper-left">
+    <button mat-button color="primary" class="btn" (click)="handlePrevTime()">
+      <mat-icon class="mat-icon material-icons mat-icon-no-color"
+        >chevron_left
+      </mat-icon>
+    </button>
+    <button mat-button color="primary" class="btn" (click)="handleNextTime()">
+      <mat-icon class="mat-icon material-icons mat-icon-no-color"
+        >chevron_right
+      </mat-icon>
+    </button>
+    <h2 class="date-time">{{ displayDateTime }}</h2>
+  </div>
+  <div class="wrapper-right">
+    <mat-form-field appearance="outline">
+      <mat-label>WEEK</mat-label>
+      <mat-select
+        [(value)]="timeSelected"
+        (selectionChange)="handleFormatDateTime()"
+      >
+        <mat-option *ngFor="let time of ViewTimeSelect" [value]="time.value">
+          {{ time.value }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="primary">Export</button>
+  </div>
+</header>
+<main>
+  <mat-tab-group>
+    <mat-tab label="Team">
+      <app-view-team [teamData]="listTeamInfor"></app-view-team>
+    </mat-tab>
+    <mat-tab label="Tasks">
+      <app-view-tasks [taskData]="listTasksInfor"></app-view-tasks>
+    </mat-tab>
+  </mat-tab-group>
+</main>

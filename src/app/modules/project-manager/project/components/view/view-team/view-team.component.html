@@ -1,0 +1,21 @@
+<main>
+  <div class="box-team-data">
+    <h2 class="title name">Name</h2>
+    <h2 class="title hour">Hour</h2>
+    <h2 class="title billable">Billable</h2>
+  </div>
+  <div class="wrapper-data-team">
+    <div class="box-team-data">
+      <h2 class="total name">Total</h2>
+      <h2 class="total hour">{{ totalHourWorkingTime }}</h2>
+      <h2 class="total billable">{{ totalBillableWorkingTime }}</h2>
+    </div>
+    <ng-container *ngFor="let team of teamData">
+      <div class="box-team-data">
+        <p class="name">{{ team.userName }}</p>
+        <p class="hour">{{ team.totalWorkingTime }}</p>
+        <p class="billable">{{ team.billableWorkingTime }}</p>
+      </div>
+    </ng-container>
+  </div>
+</main>

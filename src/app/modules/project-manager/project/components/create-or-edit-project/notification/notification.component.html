@@ -1,0 +1,39 @@
+<form [formGroup]="notificationFormGroup">
+  <div class="main-content">
+    <div class="chanel">
+      <mat-form-field>
+        <mat-label>KOMU CHANEL</mat-label>
+        <input
+          formControlName="komuChannelId"
+          matInput
+          placeholder="KOMU Notification"
+        />
+      </mat-form-field>
+    </div>
+    <section class="main-notification">
+      <ng-container *ngFor="let type of notifiList.value">
+        <mat-checkbox
+          color="primary"
+          [checked]="type.isNotice"
+          [(ngModel)]="type.isNotice"
+          [ngModelOptions]="{ standalone: true }"
+          >{{ type.type }}
+        </mat-checkbox>
+      </ng-container>
+    </section>
+  </div>
+  <div class="wrapper-btn-footer">
+    <button [routerLink]="'task'" mat-raised-button matStepperPrevious>
+      Back
+    </button>
+    <button
+      (click)="handleCreateOrEditProject()"
+      [routerLink]="'/project'"
+      mat-raised-button
+      mat-button
+      color="primary"
+    >
+      Save
+    </button>
+  </div>
+</form>

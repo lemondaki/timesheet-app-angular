@@ -1,0 +1,40 @@
+<div id="login">
+  <form [formGroup]="inforUserAccount" (ngSubmit)="handleLogin()">
+    <h2 class="user-not-select">Log In TimeSheet</h2>
+    <p class="error" *ngIf="false">
+      The username and password were not recognized
+    </p>
+    <app-text-field
+      [type]="'text'"
+      [placeholder]="'Username or email'"
+      formControlName="username"
+    ></app-text-field>
+    <p
+      class="error"
+      *ngIf="
+        handleCheckValidate('username') ||
+        (isSubmited && inforUserAccount.controls['username'].invalid)
+      "
+    >
+      Username is required!
+    </p>
+    <app-text-field
+      [type]="'password'"
+      [placeholder]="'Password'"
+      formControlName="password"
+    ></app-text-field>
+    <p
+      class="error"
+      *ngIf="
+        handleCheckValidate('password') ||
+        (isSubmited && inforUserAccount.controls['password'].invalid)
+      "
+    >
+      Password is required!
+    </p>
+    <mat-checkbox class="checkbox-remember">Remember me!</mat-checkbox>
+    <button mat-raised-button color="primary">Login</button>
+
+    <p class="description">© 2023 Timesheet. Version 4.3.0.0 [20221606]</p>
+  </form>
+</div>

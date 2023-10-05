@@ -1,0 +1,18 @@
+<div class="main-task">
+  <app-tasks-list [tasksFormArray]="tasksFormArray"></app-tasks-list>
+  <app-tasks-select [tasksSelect]="tasksSelect"></app-tasks-select>
+</div>
+<div class="wrapper-btn-footer">
+  <button [routerLink]="'team'" mat-raised-button matStepperPrevious>
+    Back
+  </button>
+  <button
+    mat-raised-button
+    mat-button
+    color="primary"
+    matStepperNext
+    (click)="handleShowError()"
+  >
+    Next
+  </button>
+</div>

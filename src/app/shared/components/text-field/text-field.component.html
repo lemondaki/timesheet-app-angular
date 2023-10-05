@@ -1,0 +1,7 @@
+<input
+  [placeholder]="placeholder"
+  [type]="type"
+  [formControl]="inputValue"
+  (input)="onChange(inputValue.value)"
+  (blur)="onTouched()"
+/>

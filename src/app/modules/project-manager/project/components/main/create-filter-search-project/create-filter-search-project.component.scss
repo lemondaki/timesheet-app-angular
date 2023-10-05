@@ -1,0 +1,37 @@
+header {
+  margin-bottom: 20px;
+}
+
+mat-select {
+  padding: 0;
+}
+
+.main-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.input-search-field {
+  width: 450px;
+  margin-top: 20px;
+}
+
+.mat-card-content {
+  font-size: 20px;
+}
+
+.mat-raised-button {
+  padding: 8px 26px;
+  font-size: 16px;
+}
+
+.mat-icon {
+  margin-bottom: 3px;
+}
+
+.search-icon {
+  cursor: pointer;
+}

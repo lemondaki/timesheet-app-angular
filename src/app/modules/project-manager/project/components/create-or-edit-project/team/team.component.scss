@@ -1,0 +1,22 @@
+.wrapper-team {
+  display: flex;
+  min-height: 450px;
+}
+
+#team-member-selected {
+  width: 60%;
+}
+
+.wrapper-member-infor {
+  display: flex;
+}
+
+#team-member-show {
+  flex: 1;
+}
+
+.wrapper-btn-footer {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+}
